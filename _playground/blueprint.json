@@ -27,7 +27,7 @@
 			"step": "importWxr",
 			"file": {
 				"resource": "url",
-				"url": "https://raw.githubusercontent.com/philhoyt/search-modal-block/main/_playground/demo-content.xml"
+				"url": "https://raw.githubusercontent.com/philhoyt/Back-to-Top-Block/main/_playground/demo-content.xml"
 			}
 		}
 	]
