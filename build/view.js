@@ -1,0 +1,1 @@
+window.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll(".back-to-top-link").forEach((e=>{e.addEventListener("click",(()=>{const e=window.matchMedia("(prefers-reduced-motion: reduce)").matches;window.scrollTo({top:0,behavior:e?"auto":"smooth"})}))}))}));
