@@ -22,24 +22,24 @@ export default function Edit( { attributes, setAttributes } ) {
 		<>
 			<InspectorControls>
 				<PanelBody
-					title={ __( 'Button Settings', 'your-text-domain' ) }
+					title={ __( 'Button Settings', 'back-to-top-block' ) }
 				>
 					<ToggleControl
-						label={ __( 'Show Icon', 'your-text-domain' ) }
+						label={ __( 'Show Icon', 'back-to-top-block' ) }
 						checked={ showIcon }
 						onChange={ () =>
 							setAttributes( { showIcon: ! showIcon } )
 						}
 					/>
 					<ToggleControl
-						label={ __( 'Show Text', 'your-text-domain' ) }
+						label={ __( 'Show Text', 'back-to-top-block' ) }
 						checked={ showText }
 						onChange={ () =>
 							setAttributes( { showText: ! showText } )
 						}
 					/>
 					<TextControl
-						label={ __( 'Button Text', 'your-text-domain' ) }
+						label={ __( 'Button Text', 'back-to-top-block' ) }
 						value={ buttonText }
 						onChange={ ( value ) =>
 							setAttributes( { buttonText: value } )
@@ -57,7 +57,7 @@ export default function Edit( { attributes, setAttributes } ) {
 									<p>
 										{ __(
 											'Custom Icon',
-											'your-text-domain'
+											'back-to-top-block'
 										) }
 									</p>
 									{ attributes.iconUrl ? (
@@ -77,7 +77,7 @@ export default function Edit( { attributes, setAttributes } ) {
 											>
 												{ __(
 													'Remove',
-													'your-text-domain'
+													'back-to-top-block'
 												) }
 											</Button>
 										</div>
@@ -88,7 +88,7 @@ export default function Edit( { attributes, setAttributes } ) {
 										>
 											{ __(
 												'Upload Icon',
-												'your-text-domain'
+												'back-to-top-block'
 											) }
 										</Button>
 									) }
