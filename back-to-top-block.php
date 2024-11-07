@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Back To Top Block
- * Description:       Example block scaffolded with Create Block tool.
+ * Description:       Adds a Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.2
  * Version:           0.1.0
- * Author:            The WordPress Contributors
+ * Author:            Phil Hoyt
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       back-to-top-block
