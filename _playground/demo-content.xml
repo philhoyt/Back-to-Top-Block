@@ -27,14 +27,77 @@
 
 <channel>
 	<title>Back to Top Block</title>
+	<link>http://back-to-top-block.local</link>
 	<description></description>
 	<pubDate>Thu, 07 Nov 2024 13:55:56 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>http://back-to-top-block.local</wp:base_site_url>
+	<wp:base_blog_url>http://back-to-top-block.local</wp:base_blog_url>
 
+		<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[admin]]></wp:author_login><wp:author_email><![CDATA[dev-email@wpengine.local]]></wp:author_email><wp:author_display_name><![CDATA[admin]]></wp:author_display_name><wp:author_first_name><![CDATA[]]></wp:author_first_name><wp:author_last_name><![CDATA[]]></wp:author_last_name></wp:author>
+
+		<wp:category>
+		<wp:term_id>1</wp:term_id>
+		<wp:category_nicename><![CDATA[uncategorized]]></wp:category_nicename>
+		<wp:category_parent><![CDATA[]]></wp:category_parent>
+		<wp:cat_name><![CDATA[Uncategorized]]></wp:cat_name>
+	</wp:category>
+				<wp:term>
+		<wp:term_id>3</wp:term_id>
+		<wp:term_taxonomy><![CDATA[wp_template_part_area]]></wp:term_taxonomy>
+		<wp:term_slug><![CDATA[footer]]></wp:term_slug>
+		<wp:term_parent><![CDATA[]]></wp:term_parent>
+		<wp:term_name><![CDATA[footer]]></wp:term_name>
+	</wp:term>
+		<wp:term>
+		<wp:term_id>4</wp:term_id>
+		<wp:term_taxonomy><![CDATA[wp_template_part_area]]></wp:term_taxonomy>
+		<wp:term_slug><![CDATA[header]]></wp:term_slug>
+		<wp:term_parent><![CDATA[]]></wp:term_parent>
+		<wp:term_name><![CDATA[header]]></wp:term_name>
+	</wp:term>
+		<wp:term>
+		<wp:term_id>2</wp:term_id>
+		<wp:term_taxonomy><![CDATA[wp_theme]]></wp:term_taxonomy>
+		<wp:term_slug><![CDATA[twentytwentyfour]]></wp:term_slug>
+		<wp:term_parent><![CDATA[]]></wp:term_parent>
+		<wp:term_name><![CDATA[twentytwentyfour]]></wp:term_name>
+	</wp:term>
+		<wp:term>
+		<wp:term_id>1</wp:term_id>
+		<wp:term_taxonomy><![CDATA[category]]></wp:term_taxonomy>
+		<wp:term_slug><![CDATA[uncategorized]]></wp:term_slug>
+		<wp:term_parent><![CDATA[]]></wp:term_parent>
+		<wp:term_name><![CDATA[Uncategorized]]></wp:term_name>
+	</wp:term>
 		
 	<generator>https://wordpress.org/?v=6.6.2</generator>
 
+		<item>
+		<title><![CDATA[Navigation]]></title>
+		<link>http://back-to-top-block.local/navigation/</link>
+		<pubDate>Wed, 06 Nov 2024 23:09:45 +0000</pubDate>
+		<dc:creator><![CDATA[]]></dc:creator>
+		<guid isPermaLink="false">http://back-to-top-block.local/navigation/</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:page-list /-->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>4</wp:post_id>
+		<wp:post_date><![CDATA[2024-11-06 23:09:45]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2024-11-06 23:09:45]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2024-11-06 23:09:45]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2024-11-06 23:09:45]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[navigation]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[wp_navigation]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+														</item>
 					<item>
 		<title><![CDATA[Custom Styles]]></title>
 		<link>http://back-to-top-block.local/wp-global-styles-twentytwentyfour/</link>
@@ -213,7 +276,7 @@
 <!-- /wp:spacer -->
 
 <!-- wp:image {"sizeSlug":"full","linkDestination":"none","align":"wide","className":"is-style-rounded"} -->
-<figure class="wp-block-image alignwide size-full is-style-rounded"><img src="./wp-content/themes/twentytwentyfour/assets/images/building-exterior.webp" alt="Building exterior in Toronto, Canada"/></figure>
+<figure class="wp-block-image alignwide size-full is-style-rounded"><img src="http://back-to-top-block.local/wp-content/themes/twentytwentyfour/assets/images/building-exterior.webp" alt="Building exterior in Toronto, Canada"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group -->
 
@@ -344,7 +407,7 @@
 
 <!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-rounded"} -->
-<figure class="wp-block-image size-large is-style-rounded"><img src="./wp-content/themes/twentytwentyfour/assets/images/tourist-and-building.webp" alt="Tourist taking photo of a building"/></figure>
+<figure class="wp-block-image size-large is-style-rounded"><img src="http://back-to-top-block.local/wp-content/themes/twentytwentyfour/assets/images/tourist-and-building.webp" alt="Tourist taking photo of a building"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -356,7 +419,7 @@
 <!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|50","left":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"50%"} -->
 <div class="wp-block-column" style="flex-basis:50%"><!-- wp:image {"sizeSlug":"large","linkDestination":"none","className":"is-style-rounded"} -->
-<figure class="wp-block-image size-large is-style-rounded"><img src="./wp-content/themes/twentytwentyfour/assets/images/windows.webp" alt="Windows of a building in Nuremberg, Germany"/></figure>
+<figure class="wp-block-image size-large is-style-rounded"><img src="http://back-to-top-block.local/wp-content/themes/twentytwentyfour/assets/images/windows.webp" alt="Windows of a building in Nuremberg, Germany"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
