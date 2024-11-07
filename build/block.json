@@ -6,7 +6,7 @@
   "title": "Back To Top Block",
   "category": "widgets",
   "icon": "arrow-up-alt2",
-  "description": "Example block scaffolded with Create Block tool.",
+  "description": "Adds a Back to Top button that helps visitors return to the top of the page.",
   "example": {},
   "supports": {
     "html": false
