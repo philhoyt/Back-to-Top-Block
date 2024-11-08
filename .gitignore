@@ -1,3 +1,15 @@
+# Editor folders
+.vscode/
+.editorconfig
+
+# Testing
+phpcs.xml
+phpcs.xml.dist
+
+# Composer
+composer.phar
+composer.lock
+
 # Dependencies
 /node_modules
 /vendor
