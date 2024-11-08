@@ -10,11 +10,11 @@ A customizable "Back to Top" button block for WordPress that helps users quickly
 
 The Back to Top Block is a simple yet powerful WordPress block that adds a customizable button allowing users to smoothly scroll back to the top of your page. It's perfect for long-form content and enhancing user experience.
 
-https://github.com/philhoyt/Back-to-Top-Block/raw/main/assets/demo.mp4
+https://github.com/philhoyt/Back-to-Top-Block/blob/main/assets/demo.mp4
 
 ### Block Settings
 
-![Block Settings Screenshot](assets/settings.png)
+![Block Settings Screenshot](https://github.com/philhoyt/Back-to-Top-Block/blob/main/assets/setting.png)
 
 ### Features
 
