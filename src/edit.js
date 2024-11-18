@@ -100,7 +100,6 @@ export default function Edit( { attributes, setAttributes } ) {
 			</InspectorControls>
 			<div { ...useBlockProps() }>
 				<BackToTopButton
-					isEditor={ true }
 					showIcon={ attributes.showIcon }
 					showText={ attributes.showText }
 					buttonText={ attributes.buttonText }

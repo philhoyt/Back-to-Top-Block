@@ -1,7 +1,6 @@
 import { __ } from '@wordpress/i18n';
 
 export const BackToTopButton = ( {
-	isEditor = false,
 	showIcon = true,
 	showText = true,
 	buttonText = __( 'Back to Top', 'back-to-top-block' ),
@@ -11,7 +10,6 @@ export const BackToTopButton = ( {
 		type: 'button',
 		className: 'back-to-top-link',
 		'aria-label': buttonText,
-		...( isEditor && { onClick: () => window.scrollTo( { top: 0 } ) } ),
 	};
 
 	return (

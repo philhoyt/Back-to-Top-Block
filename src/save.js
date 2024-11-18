@@ -7,7 +7,6 @@ export default function save( { attributes } ) {
 	return (
 		<div { ...useBlockProps.save() }>
 			<BackToTopButton
-				isEditor={ true }
 				showIcon={ showIcon }
 				showText={ showText }
 				buttonText={ buttonText }
