@@ -17,6 +17,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+/**
+ * Registers the Back to Top block type.
+ *
+ * This function is called during WordPress initialization to register
+ * the Back to Top block using the compiled assets from the build directory.
+ *
+ * @since 0.1.0
+ * @return void
+ */
 function create_block_back_to_top_block_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }

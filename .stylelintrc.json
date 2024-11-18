@@ -1,14 +1,8 @@
 {
-    "extends": [
-        "@wordpress/stylelint-config"
-    ],
-    "rules": {
-        "at-rule-empty-line-before": null,
-        "no-descending-specificity": null
-    },
-    "ignoreFiles": [
-        "build/**/*",
-        "node_modules/**/*",
-        "vendor/**/*"
-    ]
-} 
+	"extends": [ "@wordpress/stylelint-config" ],
+	"rules": {
+		"at-rule-empty-line-before": null,
+		"no-descending-specificity": null
+	},
+	"ignoreFiles": [ "build/**/*", "node_modules/**/*", "vendor/**/*" ]
+}

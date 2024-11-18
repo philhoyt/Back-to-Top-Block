@@ -17,8 +17,8 @@
 		"start": "wp-scripts start"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^30.4.0",
-		"@wordpress/eslint-plugin": "latest",
-		"@wordpress/stylelint-config": "latest"
+		"@wordpress/eslint-plugin": "^21.5.0",
+		"@wordpress/scripts": "^30.5.0",
+		"@wordpress/stylelint-config": "^23.4.0"
 	}
 }
