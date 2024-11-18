@@ -50,3 +50,4 @@ build/Release
 
 # vendor directory
 vendor/
+RELEASE.md
