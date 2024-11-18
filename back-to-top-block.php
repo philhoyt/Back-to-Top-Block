@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:       Back To Top Block
- * Description:       Adds a Back to Top button that helps visitors return to the top of the page.
+ * Description:       Adds a customizable Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           0.1.0
+ * Version:           1.0.0
  * Author:            Phil Hoyt
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -23,10 +23,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This function is called during WordPress initialization to register
  * the Back to Top block using the compiled assets from the build directory.
  *
- * @since 0.1.0
+ * @since 1.0.0
  * @return void
  */
-function create_block_back_to_top_block_block_init() {
+function back_to_top_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'create_block_back_to_top_block_block_init' );
+add_action( 'init', 'back_to_top_block_init' );
