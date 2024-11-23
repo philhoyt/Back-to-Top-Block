@@ -6,7 +6,7 @@
 	"title": "Back To Top Block",
 	"category": "widgets",
 	"icon": "arrow-up-alt2",
-	"description": "Adds a Back to Top button that helps visitors return to the top of the page.",
+	"description": "Adds a customizable Back to Top button that helps visitors return to the top of the page.",
 	"keywords": [ "scroll", "navigation", "button", "top" ],
 	"example": {},
 	"supports": {
@@ -50,11 +50,13 @@
 		},
 		"buttonText": {
 			"type": "string",
-			"default": "Back to Top"
+			"default": "Back to Top",
+			"maxLength": 50
 		},
 		"iconUrl": {
 			"type": "string",
-			"default": ""
+			"default": "",
+			"pattern": "^(https?:\\/\\/)?[\\w\\-\\.]+\\.[a-zA-Z]{2,}(\\/\\S*)?$"
 		}
 	}
 }

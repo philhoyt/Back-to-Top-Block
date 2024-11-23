@@ -1,5 +1,4 @@
 import { __ } from '@wordpress/i18n';
-
 import {
 	useBlockProps,
 	InspectorControls,
@@ -11,12 +10,37 @@ import {
 	ToggleControl,
 	TextControl,
 	Button,
+	Notice,
 } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 
 import { BackToTopButton } from './components/back-to-top-button';
 
+const ALLOWED_MEDIA_TYPES = [ 'image' ];
+
 export default function Edit( { attributes, setAttributes } ) {
-	const { showIcon, showText, buttonText } = attributes;
+	const { showIcon, showText, buttonText, iconUrl } = attributes;
+	const [ error, setError ] = useState( '' );
+
+	const validateButtonText = ( text ) => {
+		if ( ! text ) {
+			setError(
+				__( 'Button text cannot be empty.', 'back-to-top-block' )
+			);
+			return false;
+		}
+		setError( '' );
+		return true;
+	};
+
+	const handleMediaSelect = ( media ) => {
+		if ( ! media || ! media.url ) {
+			setError( __( 'Invalid media selection.', 'back-to-top-block' ) );
+			return;
+		}
+		setError( '' );
+		setAttributes( { iconUrl: media.url } );
+	};
 
 	return (
 		<>
@@ -24,6 +48,11 @@ export default function Edit( { attributes, setAttributes } ) {
 				<PanelBody
 					title={ __( 'Button Settings', 'back-to-top-block' ) }
 				>
+					{ error && (
+						<Notice status="error" isDismissible={ false }>
+							{ error }
+						</Notice>
+					) }
 					<ToggleControl
 						label={ __( 'Show Icon', 'back-to-top-block' ) }
 						checked={ showIcon }
@@ -41,69 +70,49 @@ export default function Edit( { attributes, setAttributes } ) {
 					<TextControl
 						label={ __( 'Button Text', 'back-to-top-block' ) }
 						value={ buttonText }
-						onChange={ ( value ) =>
-							setAttributes( { buttonText: value } )
-						}
+						onChange={ ( value ) => {
+							if ( validateButtonText( value ) ) {
+								setAttributes( { buttonText: value } );
+							}
+						} }
 					/>
 					<MediaUploadCheck>
 						<MediaUpload
-							onSelect={ ( media ) => {
-								setAttributes( { iconUrl: media.url } );
-							} }
-							allowedTypes={ [ 'image' ] }
-							value={ attributes.iconUrl }
+							onSelect={ handleMediaSelect }
+							allowedTypes={ ALLOWED_MEDIA_TYPES }
+							value={ iconUrl }
 							render={ ( { open } ) => (
-								<div>
-									<p>
-										{ __(
-											'Custom Icon',
-											'back-to-top-block'
-										) }
-									</p>
-									{ attributes.iconUrl ? (
-										<div>
-											<img
-												src={ attributes.iconUrl }
-												alt=""
-												style={ { maxWidth: '100px' } }
-											/>
-											<Button
-												isDestructive
-												onClick={ () =>
-													setAttributes( {
-														iconUrl: '',
-													} )
-												}
-											>
-												{ __(
-													'Remove',
-													'back-to-top-block'
-												) }
-											</Button>
-										</div>
-									) : (
-										<Button
-											variant="secondary"
-											onClick={ open }
-										>
-											{ __(
-												'Upload Icon',
+								<Button onClick={ open } variant="secondary">
+									{ iconUrl
+										? __(
+												'Replace Icon',
 												'back-to-top-block'
-											) }
-										</Button>
-									) }
-								</div>
+										  )
+										: __(
+												'Add Icon',
+												'back-to-top-block'
+										  ) }
+								</Button>
 							) }
 						/>
 					</MediaUploadCheck>
+					{ iconUrl && (
+						<Button
+							onClick={ () => setAttributes( { iconUrl: '' } ) }
+							variant="link"
+							isDestructive
+						>
+							{ __( 'Remove Icon', 'back-to-top-block' ) }
+						</Button>
+					) }
 				</PanelBody>
 			</InspectorControls>
 			<div { ...useBlockProps() }>
 				<BackToTopButton
-					showIcon={ attributes.showIcon }
-					showText={ attributes.showText }
-					buttonText={ attributes.buttonText }
-					iconUrl={ attributes.iconUrl }
+					showIcon={ showIcon }
+					showText={ showText }
+					buttonText={ buttonText }
+					iconUrl={ iconUrl }
 				/>
 			</div>
 		</>

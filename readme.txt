@@ -1,8 +1,10 @@
 === Back To Top Block ===
-Contributors:      Phil Hoyt
+Contributors:      philhoyt
 Tags:              block, scroll, navigation, back-to-top
-Tested up to:      6.6
+Requires at least: 6.1
+Tested up to:      6.7.1
 Stable tag:        1.0.1
+Requires PHP:      7.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,7 +51,7 @@ Yes, the block is built with accessibility in mind, including proper ARIA labels
 
 == Changelog ==
 
-= 0.1.0 =
+= 1.0.1 =
 * Initial release
 * Basic button functionality
 * Customization options for text and icon
@@ -58,5 +60,5 @@ Yes, the block is built with accessibility in mind, including proper ARIA labels
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 1.0.0 =
 Initial release of the Back to Top Block

@@ -15,6 +15,8 @@
  * @package back-to-top-block
  */
 
+namespace BackToTopBlock;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -31,4 +33,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 function back_to_top_block_init() {
 	register_block_type( __DIR__ . '/build' );
 }
-add_action( 'init', 'back_to_top_block_init' );
+add_action( 'init', __NAMESPACE__ . '\\back_to_top_block_init' );
