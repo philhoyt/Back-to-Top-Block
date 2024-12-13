@@ -48,6 +48,7 @@ Yes, the block is built with accessibility in mind, including proper ARIA labels
 
 == Screenshots ==
 
+1. Setting for the Back to Top Block
 
 == Changelog ==
 
