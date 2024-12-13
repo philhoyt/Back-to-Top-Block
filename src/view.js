@@ -9,6 +9,12 @@ window.addEventListener( 'DOMContentLoaded', () => {
 				top: 0,
 				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 			} );
+
+			const skipLink = document.querySelector( '.skip-link' );
+			if ( skipLink ) {
+				skipLink.focus();
+				skipLink.blur();
+			}
 		} );
 	} );
 } );

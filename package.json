@@ -1,6 +1,6 @@
 {
 	"name": "back-to-top-block",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "A WordPress block that adds a customizable back-to-top button to help visitors return to the top of the page.",
 	"author": "philhoyt",
 	"repository": {
@@ -23,8 +23,7 @@
 	"files": [
 		"build",
 		"readme.txt",
-		"back-to-top-block.php",
-		"src"
+		"back-to-top-block.php"
 	],
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^21.5.0",

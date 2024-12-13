@@ -1,1 +1,23 @@
-window.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll(".back-to-top-link").forEach((e=>{e.addEventListener("click",(()=>{const e=window.matchMedia("(prefers-reduced-motion: reduce)").matches;window.scrollTo({top:0,behavior:e?"auto":"smooth"})}))}))}));
+/******/ (() => { // webpackBootstrap
+/*!*********************!*\
+  !*** ./src/view.js ***!
+  \*********************/
+window.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.back-to-top-link').forEach(button => {
+    button.addEventListener('click', () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth'
+      });
+      const skipLink = document.querySelector('.skip-link');
+      if (skipLink) {
+        skipLink.focus();
+        skipLink.blur();
+      }
+    });
+  });
+});
+/******/ })()
+;
+//# sourceMappingURL=view.js.map

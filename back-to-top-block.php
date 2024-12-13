@@ -5,7 +5,7 @@
  * Description:       Adds a customizable Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.2
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Phil Hoyt
  * Author URI:        https://philhoyt.com
  * License:           GPL-2.0-or-later
@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * This function is called during WordPress initialization to register
  * the Back to Top block using the compiled assets from the build directory.
  *
- * @since 1.0.1
+ * @since 1.0.2
  * @return void
  */
 function back_to_top_block_init() {
