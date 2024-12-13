@@ -5,7 +5,7 @@ window.addEventListener( 'DOMContentLoaded', () => {
 				'(prefers-reduced-motion: reduce)'
 			).matches;
 
-			const scrollPromise = window.scrollTo( {
+			window.scrollTo( {
 				top: 0,
 				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 			} );
@@ -17,13 +17,17 @@ window.addEventListener( 'DOMContentLoaded', () => {
 					skipLink.focus();
 					skipLink.blur();
 				}
+				// Remove the event listener after it fires
+				document.removeEventListener( 'scrollend', handleFocus );
 			};
 
-			// If scroll returns a promise (modern browsers), use it
-			if ( scrollPromise && scrollPromise.then ) {
-				scrollPromise.then( handleFocus );
-			} else {
-				// Fallback for browsers that don't support scroll promises
+			// Listen for the scroll to end
+			document.addEventListener( 'scrollend', handleFocus, {
+				once: true,
+			} );
+
+			// Fallback for browsers that don't support scrollend
+			if ( ! ( 'onscrollend' in window ) ) {
 				setTimeout( handleFocus, prefersReducedMotion ? 0 : 800 );
 			}
 		} );
