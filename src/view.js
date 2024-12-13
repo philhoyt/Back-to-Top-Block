@@ -5,15 +5,26 @@ window.addEventListener( 'DOMContentLoaded', () => {
 				'(prefers-reduced-motion: reduce)'
 			).matches;
 
-			window.scrollTo( {
+			const scrollPromise = window.scrollTo( {
 				top: 0,
 				behavior: prefersReducedMotion ? 'auto' : 'smooth',
 			} );
 
-			const skipLink = document.querySelector( '.skip-link' );
-			if ( skipLink ) {
-				skipLink.focus();
-				skipLink.blur();
+			// Handle focus after scroll completes
+			const handleFocus = () => {
+				const skipLink = document.querySelector( '.skip-link' );
+				if ( skipLink ) {
+					skipLink.focus();
+					skipLink.blur();
+				}
+			};
+
+			// If scroll returns a promise (modern browsers), use it
+			if ( scrollPromise && scrollPromise.then ) {
+				scrollPromise.then( handleFocus );
+			} else {
+				// Fallback for browsers that don't support scroll promises
+				setTimeout( handleFocus, prefersReducedMotion ? 0 : 800 );
 			}
 		} );
 	} );
