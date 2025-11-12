@@ -23,9 +23,18 @@ export default function Edit( { attributes, setAttributes } ) {
 	const [ error, setError ] = useState( '' );
 
 	const validateButtonText = ( text ) => {
-		if ( ! text ) {
+		// Allow empty text if icon is shown (accessibility: aria-label still has text).
+		if ( ! text && showIcon ) {
+			setError( '' );
+			return true;
+		}
+		// Require text if icon is hidden for accessibility.
+		if ( ! text && ! showIcon ) {
 			setError(
-				__( 'Button text cannot be empty.', 'back-to-top-block' )
+				__(
+					'Button text cannot be empty when icon is hidden.',
+					'back-to-top-block'
+				)
 			);
 			return false;
 		}
@@ -38,6 +47,24 @@ export default function Edit( { attributes, setAttributes } ) {
 			setError( __( 'Invalid media selection.', 'back-to-top-block' ) );
 			return;
 		}
+
+		// Validate that the URL is from WordPress media library or same origin.
+		const mediaUrl = media.url;
+		const isRelative = mediaUrl.startsWith( '/' );
+		const isSameOrigin = mediaUrl.startsWith( window.location.origin );
+		const isUploadsPath = mediaUrl.includes( '/wp-content/uploads/' );
+
+		// Only allow URLs from the same origin or relative paths (media library).
+		if ( ! isRelative && ! isSameOrigin && ! isUploadsPath ) {
+			setError(
+				__(
+					'Only images from the media library are allowed.',
+					'back-to-top-block'
+				)
+			);
+			return;
+		}
+
 		setError( '' );
 		setAttributes( { iconUrl: media.url } );
 	};
