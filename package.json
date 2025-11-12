@@ -1,6 +1,6 @@
 {
 	"name": "back-to-top-block",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "A WordPress block that adds a customizable back-to-top button to help visitors return to the top of the page.",
 	"author": "philhoyt",
 	"repository": {

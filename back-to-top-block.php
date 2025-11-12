@@ -5,7 +5,7 @@
  * Description:       Adds a customizable Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Phil Hoyt
  * Author URI:        https://philhoyt.com
  * License:           GPL-2.0-or-later
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Sanitizes the button text attribute.
  *
- * @since 1.0.2
+ * @since 1.0.3
  * @param string $value The button text value.
  * @return string Sanitized button text.
  */
@@ -35,7 +35,7 @@ function sanitize_button_text( $value ) {
 /**
  * Sanitizes the icon URL attribute.
  *
- * @since 1.0.2
+ * @since 1.0.3
  * @param string $value The icon URL value.
  * @return string Sanitized icon URL.
  */
@@ -75,7 +75,7 @@ function sanitize_icon_url( $value ) {
  * This function is called during WordPress initialization to register
  * the Back to Top block using the compiled assets from the build directory.
  *
- * @since 1.0.2
+ * @since 1.0.3
  * @return void
  */
 function back_to_top_block_init() {
@@ -105,7 +105,7 @@ function back_to_top_block_init() {
 	/**
 	 * Filters the arguments used to register the Back to Top block.
 	 *
-	 * @since 1.0.2
+	 * @since 1.0.3
 	 * @param array $block_args Block registration arguments.
 	 */
 	$block_args = apply_filters( 'back_to_top_block_args', $block_args );
