@@ -5,10 +5,15 @@ window.addEventListener( 'DOMContentLoaded', () => {
 				'(prefers-reduced-motion: reduce)'
 			).matches;
 
-			window.scrollTo( {
-				top: 0,
-				behavior: prefersReducedMotion ? 'auto' : 'smooth',
-			} );
+			try {
+				window.scrollTo( {
+					top: 0,
+					behavior: prefersReducedMotion ? 'auto' : 'smooth',
+				} );
+			} catch ( error ) {
+				// Fallback for older browsers that don't support options object.
+				window.scrollTo( 0, 0 );
+			}
 
 			// Handle focus after scroll completes
 			const handleFocus = () => {

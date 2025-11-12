@@ -1,7 +1,7 @@
 === Back To Top Block ===
 Contributors:      philhoyt
 Tags:              block, scroll, navigation, back-to-top, scroll-to-top
-Requires at least: 6.1
+Requires at least: 6.6
 Tested up to:      6.9
 Stable tag:        1.0.2
 Requires PHP:      7.4

@@ -96,8 +96,14 @@ function Edit({
   } = attributes;
   const [error, setError] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_3__.useState)('');
   const validateButtonText = text => {
-    if (!text) {
-      setError((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Button text cannot be empty.', 'back-to-top-block'));
+    // Allow empty text if icon is shown (accessibility: aria-label still has text).
+    if (!text && showIcon) {
+      setError('');
+      return true;
+    }
+    // Require text if icon is hidden for accessibility.
+    if (!text && !showIcon) {
+      setError((0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Button text cannot be empty when icon is hidden.', 'back-to-top-block'));
       return false;
     }
     setError('');
