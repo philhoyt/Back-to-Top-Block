@@ -38,6 +38,24 @@ export default function Edit( { attributes, setAttributes } ) {
 			setError( __( 'Invalid media selection.', 'back-to-top-block' ) );
 			return;
 		}
+
+		// Validate that the URL is from WordPress media library or same origin.
+		const mediaUrl = media.url;
+		const isRelative = mediaUrl.startsWith( '/' );
+		const isSameOrigin = mediaUrl.startsWith( window.location.origin );
+		const isUploadsPath = mediaUrl.includes( '/wp-content/uploads/' );
+
+		// Only allow URLs from the same origin or relative paths (media library).
+		if ( ! isRelative && ! isSameOrigin && ! isUploadsPath ) {
+			setError(
+				__(
+					'Only images from the media library are allowed.',
+					'back-to-top-block'
+				)
+			);
+			return;
+		}
+
 		setError( '' );
 		setAttributes( { iconUrl: media.url } );
 	};

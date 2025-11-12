@@ -22,6 +22,54 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Sanitizes the button text attribute.
+ *
+ * @since 1.0.2
+ * @param string $value The button text value.
+ * @return string Sanitized button text.
+ */
+function sanitize_button_text( $value ) {
+	return sanitize_text_field( $value );
+}
+
+/**
+ * Sanitizes the icon URL attribute.
+ *
+ * @since 1.0.2
+ * @param string $value The icon URL value.
+ * @return string Sanitized icon URL.
+ */
+function sanitize_icon_url( $value ) {
+	// Only allow URLs from WordPress media library or same origin.
+	$url = esc_url_raw( $value );
+	
+	// If URL is empty, return empty string.
+	if ( empty( $url ) ) {
+		return '';
+	}
+	
+	// Allow relative URLs (media library uploads).
+	if ( strpos( $url, '/' ) === 0 ) {
+		return $url;
+	}
+	
+	// Allow URLs from the same origin (current site).
+	$site_url = site_url();
+	$parsed_site = wp_parse_url( $site_url );
+	$parsed_url  = wp_parse_url( $url );
+	
+	// If same host, allow it.
+	if ( isset( $parsed_site['host'] ) && isset( $parsed_url['host'] ) ) {
+		if ( $parsed_site['host'] === $parsed_url['host'] ) {
+			return $url;
+		}
+	}
+	
+	// Otherwise, reject external URLs for security.
+	return '';
+}
+
+/**
  * Registers the Back to Top block type.
  *
  * This function is called during WordPress initialization to register
@@ -31,6 +79,30 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function back_to_top_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type(
+		__DIR__ . '/build',
+		array(
+			'attributes' => array(
+				'showIcon'  => array(
+					'type'    => 'boolean',
+					'default' => true,
+				),
+				'showText'  => array(
+					'type'    => 'boolean',
+					'default' => true,
+				),
+				'buttonText' => array(
+					'type'              => 'string',
+					'default'           => 'Back to Top',
+					'sanitize_callback' => __NAMESPACE__ . '\\sanitize_button_text',
+				),
+				'iconUrl'   => array(
+					'type'              => 'string',
+					'default'           => '',
+					'sanitize_callback' => __NAMESPACE__ . '\\sanitize_icon_url',
+				),
+			),
+		)
+	);
 }
 add_action( 'init', __NAMESPACE__ . '\\back_to_top_block_init' );

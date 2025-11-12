@@ -1,1 +1,38 @@
-.wp-block-backtotop-back-to-top-block .back-to-top-link{align-items:center;background:none;border:none;color:inherit;cursor:pointer;display:inline-flex;font:inherit;gap:.5em;padding:0}.wp-block-backtotop-back-to-top-block .back-to-top-link__icon img{display:block}.wp-block-backtotop-back-to-top-block .back-to-top-link .screen-reader-text{border:0;clip:rect(1px,1px,1px,1px);clip-path:inset(50%);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;word-wrap:normal!important}.wp-block-backtotop-back-to-top-block .back-to-top-link:focus{outline:2px dashed currentcolor;outline-offset:2px}.wp-block-backtotop-back-to-top-block .back-to-top-link:focus:not(:focus-visible){outline:none}
+/*!***************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/style.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************/
+.wp-block-backtotop-back-to-top-block .back-to-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0;
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+.wp-block-backtotop-back-to-top-block .back-to-top-link__icon img {
+  display: block;
+}
+.wp-block-backtotop-back-to-top-block .back-to-top-link .screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.wp-block-backtotop-back-to-top-block .back-to-top-link:focus {
+  outline: 2px dashed currentcolor;
+  outline-offset: 2px;
+}
+.wp-block-backtotop-back-to-top-block .back-to-top-link:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/*# sourceMappingURL=style-index.css.map*/
