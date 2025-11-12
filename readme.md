@@ -1,6 +1,6 @@
 # Back to Top Block
 
-<a href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/Back-to-Top-Block/main/_playground/blueprint.json" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Playground_Demo-v1.0.3-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9" alt="Playground Demo Link"></a>
+[![Playground Demo Link](https://img.shields.io/badge/Playground_Demo-v1.0.3-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/Back-to-Top-Block/main/_playground/blueprint.json)
 ![WordPress Plugin: Required WP Version](https://img.shields.io/badge/WordPress-%3E%3D6.6-blue)
 ![License](https://img.shields.io/badge/license-GPL--2.0%2B-green)
 
