@@ -2,13 +2,15 @@
 .vscode/
 .editorconfig
 
-# Testing
+# Testing — keep the shared .dist, ignore local overrides only
 phpcs.xml
-phpcs.xml.dist
+.phpunit.result.cache
+
+# wp-env local override
+.wp-env.override.json
 
 # Composer
 composer.phar
-composer.lock
 
 # Dependencies
 /node_modules
@@ -52,3 +54,6 @@ build/Release
 vendor/
 RELEASE.md
 AUDIT.md
+
+# Local audit reports
+plans/

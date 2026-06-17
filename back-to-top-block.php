@@ -5,7 +5,7 @@
  * Description:       Adds a customizable Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           1.0.3
+ * Version:           1.0.4
  * Author:            Phil Hoyt
  * Author URI:        https://philhoyt.com
  * License:           GPL-2.0-or-later
@@ -79,37 +79,48 @@ function sanitize_icon_url( $value ) {
  * @return void
  */
 function back_to_top_block_init() {
-	$block_args = array(
-		'attributes' => array(
-			'showIcon'   => array(
-				'type'    => 'boolean',
-				'default' => true,
-			),
-			'showText'   => array(
-				'type'    => 'boolean',
-				'default' => true,
-			),
-			'buttonText' => array(
-				'type'              => 'string',
-				'default'           => 'Back to Top',
-				'sanitize_callback' => __NAMESPACE__ . '\\sanitize_button_text',
-			),
-			'iconUrl'    => array(
-				'type'              => 'string',
-				'default'           => '',
-				'sanitize_callback' => __NAMESPACE__ . '\\sanitize_icon_url',
-			),
-		),
-	);
-
 	/**
 	 * Filters the arguments used to register the Back to Top block.
+	 *
+	 * Attributes are defined once in block.json and must not be redefined
+	 * here. Sanitization callbacks are attached via the
+	 * 'block_type_metadata_settings' filter so the block.json constraints
+	 * (such as maxLength and pattern) are preserved.
 	 *
 	 * @since 1.0.3
 	 * @param array $block_args Block registration arguments.
 	 */
-	$block_args = apply_filters( 'back_to_top_block_args', $block_args );
+	$block_args = apply_filters( 'back_to_top_block_args', array() );
 
 	register_block_type( __DIR__ . '/build', $block_args );
 }
 add_action( 'init', __NAMESPACE__ . '\\back_to_top_block_init' );
+
+/**
+ * Attaches server-side sanitization callbacks to the block's attributes.
+ *
+ * Using the metadata settings filter keeps block.json as the single source
+ * of truth for attribute definitions while still registering sanitizers,
+ * avoiding the attribute duplication that would otherwise drop block.json
+ * constraints like maxLength and pattern.
+ *
+ * @since 1.0.4
+ * @param array $settings Block type settings derived from block.json.
+ * @return array Modified settings.
+ */
+function back_to_top_block_metadata_settings( $settings ) {
+	if ( ! isset( $settings['name'] ) || 'backtotop/back-to-top-block' !== $settings['name'] ) {
+		return $settings;
+	}
+
+	if ( isset( $settings['attributes']['buttonText'] ) ) {
+		$settings['attributes']['buttonText']['sanitize_callback'] = __NAMESPACE__ . '\\sanitize_button_text';
+	}
+
+	if ( isset( $settings['attributes']['iconUrl'] ) ) {
+		$settings['attributes']['iconUrl']['sanitize_callback'] = __NAMESPACE__ . '\\sanitize_icon_url';
+	}
+
+	return $settings;
+}
+add_filter( 'block_type_metadata_settings', __NAMESPACE__ . '\\back_to_top_block_metadata_settings' );

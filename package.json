@@ -1,6 +1,6 @@
 {
 	"name": "back-to-top-block",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A WordPress block that adds a customizable back-to-top button to help visitors return to the top of the page.",
 	"author": "philhoyt",
 	"repository": {
@@ -9,6 +9,7 @@
 	},
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
+	"prettier": "@wordpress/prettier-config",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
@@ -18,7 +19,11 @@
 		"lint": "npm run lint:css && npm run lint:js && npm run lint:php",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start"
+		"start": "wp-scripts start",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop",
+		"test:unit:js": "wp-scripts test-unit-js",
+		"test:unit:php": "wp-env run tests-cli --env-cwd=wp-content/plugins/Back-to-Top-Block php ./vendor/bin/phpunit"
 	},
 	"files": [
 		"build",
@@ -26,8 +31,12 @@
 		"back-to-top-block.php"
 	],
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^21.5.0",
-		"@wordpress/scripts": "^30.5.0",
-		"@wordpress/stylelint-config": "^23.4.0"
+		"@wordpress/element": "^8.0.1",
+		"@wordpress/env": "^11.8.1",
+		"@wordpress/eslint-plugin": "^25.4.1",
+		"@wordpress/i18n": "^6.21.1",
+		"@wordpress/scripts": "^32.4.1",
+		"@wordpress/stylelint-config": "^23.40.1",
+		"@wordpress/url": "^4.48.1"
 	}
 }
