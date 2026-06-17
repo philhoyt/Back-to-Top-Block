@@ -4,6 +4,10 @@
 
 # Testing — keep the shared .dist, ignore local overrides only
 phpcs.xml
+.phpunit.result.cache
+
+# wp-env local override
+.wp-env.override.json
 
 # Composer
 composer.phar
