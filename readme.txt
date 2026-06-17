@@ -3,7 +3,7 @@ Contributors:      philhoyt
 Tags:              block, scroll, navigation, back-to-top, scroll-to-top
 Requires at least: 6.6
 Tested up to:      7.0
-Stable tag:        1.0.3
+Stable tag:        1.0.4
 Requires PHP:      7.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -55,6 +55,11 @@ Yes, the block is built with accessibility in mind, including proper ARIA labels
 1. Block settings panel showing customization options for the Back to Top button
 
 == Changelog ==
+
+= 1.0.4 =
+* Blocks saved with older versions now upgrade without editor validation errors
+* Updated build tooling and added automated tests
+* Tested up to WordPress 7.0
 
 = 1.0.3 =
 * Added server-side attribute sanitization for improved security
