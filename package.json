@@ -9,6 +9,7 @@
 	},
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
+	"prettier": "@wordpress/prettier-config",
 	"scripts": {
 		"build": "wp-scripts build",
 		"format": "wp-scripts format",
@@ -26,8 +27,8 @@
 		"back-to-top-block.php"
 	],
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^21.5.0",
-		"@wordpress/scripts": "^30.5.0",
-		"@wordpress/stylelint-config": "^23.4.0"
+		"@wordpress/eslint-plugin": "^25.4.1",
+		"@wordpress/scripts": "^32.4.1",
+		"@wordpress/stylelint-config": "^23.40.1"
 	}
 }

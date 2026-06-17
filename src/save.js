@@ -1,16 +1,16 @@
 import { useBlockProps } from '@wordpress/block-editor';
 import { BackToTopButton } from './components/back-to-top-button';
 
-export default function save( { attributes } ) {
+export default function save({ attributes }) {
 	const { showIcon, showText, buttonText } = attributes;
 
 	return (
-		<div { ...useBlockProps.save() }>
+		<div {...useBlockProps.save()}>
 			<BackToTopButton
-				showIcon={ showIcon }
-				showText={ showText }
-				buttonText={ buttonText }
-				iconUrl={ attributes.iconUrl }
+				showIcon={showIcon}
+				showText={showText}
+				buttonText={buttonText}
+				iconUrl={attributes.iconUrl}
 			/>
 		</div>
 	);
