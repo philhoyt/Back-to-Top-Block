@@ -2,9 +2,8 @@
 .vscode/
 .editorconfig
 
-# Testing
+# Testing — keep the shared .dist, ignore local overrides only
 phpcs.xml
-phpcs.xml.dist
 
 # Composer
 composer.phar
@@ -52,3 +51,6 @@ build/Release
 vendor/
 RELEASE.md
 AUDIT.md
+
+# Local audit reports
+plans/
