@@ -1,0 +1,40 @@
+# Directories that should never ship to WordPress.org
+.git
+.github
+.claude
+.wordpress-org
+_playground
+assets
+node_modules
+vendor
+src
+tests
+plans
+
+# Dotfiles and tooling config
+.gitignore
+.distignore
+.editorconfig
+.stylelintrc.json
+.wp-env.json
+.wp-env.override.json
+.phpunit.result.cache
+eslint.config.js
+jest.config.js
+jest.setup.js
+phpcs.xml.dist
+phpcs.xml
+phpunit.xml.dist
+
+# Package manifests / lockfiles
+package.json
+package-lock.json
+composer.json
+composer.lock
+
+# Build artifacts and docs not needed in the plugin
+*.zip
+readme.md
+README.md
+RELEASE.md
+AUDIT.md
