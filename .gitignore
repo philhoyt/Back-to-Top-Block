@@ -7,7 +7,6 @@ phpcs.xml
 
 # Composer
 composer.phar
-composer.lock
 
 # Dependencies
 /node_modules
