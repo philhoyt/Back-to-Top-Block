@@ -22,7 +22,9 @@ const MAX_CONTEXT_LENGTH = 9000;
 let raw = '';
 let done = false;
 process.stdin.setEncoding('utf8');
-process.stdin.on('data', chunk => { raw += chunk; });
+process.stdin.on('data', (chunk) => {
+	raw += chunk;
+});
 process.stdin.on('end', finish);
 // Never hang the session: if the payload is never delivered or never closed
 // (seen on Windows when a shell wrapper swallows stdin), process whatever
@@ -32,86 +34,108 @@ process.stdin.on('error', finish);
 setTimeout(finish, 1000).unref();
 
 function finish() {
-    if (done) return;
-    done = true;
-    try {
-        // Strip a UTF-8 BOM some shells prepend when piping (breaks JSON.parse).
-        run(raw.replace(/^\uFEFF/, ''));
-    } catch (e) {
-        process.stderr.write('[wp-stylelint] hook error: ' + e.message + '\n');
-    }
-    process.exit(0);
+	if (done) {
+		return;
+	}
+	done = true;
+	try {
+		// Strip a UTF-8 BOM some shells prepend when piping (breaks JSON.parse).
+		run(raw.replace(/^\uFEFF/, ''));
+	} catch (e) {
+		process.stderr.write('[wp-stylelint] hook error: ' + e.message + '\n');
+	}
+	process.exit(0);
 }
 
 function emitAdditionalContext(message) {
-    const context = message.length > MAX_CONTEXT_LENGTH
-        ? message.slice(0, MAX_CONTEXT_LENGTH) + '\n… (output truncated)'
-        : message;
-    process.stdout.write(JSON.stringify({
-        hookSpecificOutput: {
-            hookEventName: 'PostToolUse',
-            additionalContext: context,
-        },
-    }) + '\n');
+	const context =
+		message.length > MAX_CONTEXT_LENGTH
+			? message.slice(0, MAX_CONTEXT_LENGTH) + '\n… (output truncated)'
+			: message;
+	process.stdout.write(
+		JSON.stringify({
+			hookSpecificOutput: {
+				hookEventName: 'PostToolUse',
+				additionalContext: context,
+			},
+		}) + '\n'
+	);
 }
 
-function run(raw) {
-    const input = JSON.parse(raw);
-    const filePath = input.tool_input?.file_path || input.tool_input?.path;
+function run(payload) {
+	const input = JSON.parse(payload);
+	const filePath = input.tool_input?.file_path || input.tool_input?.path;
 
-    if (!filePath) return;
+	if (!filePath) {
+		return;
+	}
 
-    const ext = path.extname(filePath).toLowerCase();
-    if (!STYLE_EXTENSIONS.has(ext)) return;
+	const ext = path.extname(filePath).toLowerCase();
+	if (!STYLE_EXTENSIONS.has(ext)) {
+		return;
+	}
 
-    // Skip generated/vendor files
-    if (/\/(build|vendor|node_modules)\//.test(filePath)) return;
-    if (filePath.includes('.min.css')) return;
+	// Skip generated/vendor files
+	if (/\/(build|vendor|node_modules)\//.test(filePath)) {
+		return;
+	}
+	if (filePath.includes('.min.css')) {
+		return;
+	}
 
-    const cwd = input.cwd || process.cwd();
+	const cwd = input.cwd || process.cwd();
 
-    const stylelintBin = findBin(cwd, [
-        'node_modules/.bin/wp-scripts',
-        'node_modules/.bin/stylelint',
-    ]);
+	const stylelintBin = findBin(cwd, [
+		'node_modules/.bin/wp-scripts',
+		'node_modules/.bin/stylelint',
+	]);
 
-    if (!stylelintBin) {
-        process.stderr.write('[wp-stylelint] Stylelint not found — skipping lint (run /wp-setup to install)\n');
-        return;
-    }
+	if (!stylelintBin) {
+		process.stderr.write(
+			'[wp-stylelint] Stylelint not found — skipping lint (run /wp-setup to install)\n'
+		);
+		return;
+	}
 
-    const args = stylelintBin.endsWith('wp-scripts')
-        ? ['lint-style', filePath]
-        : [filePath];
+	const args = stylelintBin.endsWith('wp-scripts')
+		? ['lint-style', filePath]
+		: [filePath];
 
-    let report;
-    try {
-        execFileSync(stylelintBin, args, {
-            cwd,
-            encoding: 'utf8',
-            stdio: ['ignore', 'pipe', 'pipe'],
-        });
-        return; // Exit code 0 — no problems found.
-    } catch (e) {
-        // Stylelint exits non-zero when problems are found — report is on stdout/stderr.
-        report = ((e.stdout || '') + (e.stderr || '')).trim();
-        if (!report) {
-            process.stderr.write('[wp-stylelint] stylelint failed: ' + e.message + '\n');
-            return;
-        }
-    }
+	let report;
+	try {
+		execFileSync(stylelintBin, args, {
+			cwd,
+			encoding: 'utf8',
+			stdio: ['ignore', 'pipe', 'pipe'],
+		});
+		return; // Exit code 0 — no problems found.
+	} catch (e) {
+		// Stylelint exits non-zero when problems are found — report is on stdout/stderr.
+		report = ((e.stdout || '') + (e.stderr || '')).trim();
+		if (!report) {
+			process.stderr.write(
+				'[wp-stylelint] stylelint failed: ' + e.message + '\n'
+			);
+			return;
+		}
+	}
 
-    emitAdditionalContext(
-        '[wp-stylelint] Stylelint problems in ' + filePath + ':\n' +
-        report + '\n' +
-        'Fix these in the file you just edited.'
-    );
+	emitAdditionalContext(
+		'[wp-stylelint] Stylelint problems in ' +
+			filePath +
+			':\n' +
+			report +
+			'\n' +
+			'Fix these in the file you just edited.'
+	);
 }
 
 function findBin(cwd, candidates) {
-    for (const candidate of candidates) {
-        const full = path.join(cwd, candidate);
-        if (fs.existsSync(full)) return full;
-    }
-    return null;
+	for (const candidate of candidates) {
+		const full = path.join(cwd, candidate);
+		if (fs.existsSync(full)) {
+			return full;
+		}
+	}
+	return null;
 }

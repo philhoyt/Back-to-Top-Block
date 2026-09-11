@@ -10,7 +10,8 @@ const defaultConfig = require('@wordpress/scripts/config/eslint.config.cjs');
 module.exports = [
 	...defaultConfig,
 	{
-		ignores: ['build/**', 'node_modules/**', 'vendor/**'],
+		// .claude/ holds Claude Code hook scripts copied in by /wp-setup, not plugin source.
+		ignores: ['build/**', 'node_modules/**', 'vendor/**', '.claude/**'],
 	},
 	{
 		// @wordpress/* packages are provided by WordPress at runtime and
