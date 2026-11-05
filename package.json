@@ -22,7 +22,7 @@
 		"start": "wp-scripts start",
 		"env:start": "wp-env start",
 		"env:stop": "wp-env stop",
-		"test:unit:js": "wp-scripts test-unit-js",
+		"test:unit:js": "wp-scripts test-unit-jest",
 		"test:unit:php": "wp-env run tests-cli --env-cwd=wp-content/plugins/Back-to-Top-Block php ./vendor/bin/phpunit"
 	},
 	"files": [
@@ -31,12 +31,19 @@
 		"back-to-top-block.php"
 	],
 	"devDependencies": {
+		"@babel/core": "^7.25.7",
+		"@wordpress/babel-preset-default": "^8.55.0",
 		"@wordpress/element": "^8.0.1",
-		"@wordpress/env": "^11.8.1",
-		"@wordpress/eslint-plugin": "^25.4.1",
+		"@wordpress/env": "^12.1.0",
+		"@wordpress/eslint-plugin": "^28.1.0",
 		"@wordpress/i18n": "^6.21.1",
-		"@wordpress/scripts": "^32.4.1",
-		"@wordpress/stylelint-config": "^23.40.1",
-		"@wordpress/url": "^4.48.1"
+		"@wordpress/jest-preset-default": "^14.2.0",
+		"@wordpress/scripts": "^37.1.0",
+		"@wordpress/stylelint-config": "^27.1.0",
+		"@wordpress/url": "^4.48.1",
+		"babel-jest": "^30.5.0",
+		"eslint-plugin-jest": "^29.17.0",
+		"jest": "^30.5.0",
+		"jest-environment-jsdom": "^30.5.0"
 	}
 }

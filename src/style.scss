@@ -20,6 +20,7 @@
 
 		.screen-reader-text {
 			border: 0;
+			/* stylelint-disable-next-line property-no-deprecated -- legacy fallback kept to match core's .screen-reader-text; clip-path covers modern browsers */
 			clip: rect(1px, 1px, 1px, 1px);
 			clip-path: inset(50%);
 			height: 1px;
@@ -28,7 +29,7 @@
 			padding: 0;
 			position: absolute;
 			width: 1px;
-			word-wrap: normal !important;
+			overflow-wrap: normal !important;
 		}
 
 		&:focus {
