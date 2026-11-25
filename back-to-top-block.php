@@ -5,7 +5,7 @@
  * Description:       Adds a customizable Back to Top button that helps visitors return to the top of the page.
  * Requires at least: 6.6
  * Requires PHP:      7.4
- * Version:           1.0.5
+ * Version:           1.0.6
  * Author:            Phil Hoyt
  * Author URI:        https://philhoyt.com
  * License:           GPL-2.0-or-later

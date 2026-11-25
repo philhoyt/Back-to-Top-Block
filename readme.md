@@ -1,7 +1,7 @@
 # Back to Top Block
 
 [![CI](https://github.com/philhoyt/Back-to-Top-Block/actions/workflows/ci.yml/badge.svg)](https://github.com/philhoyt/Back-to-Top-Block/actions/workflows/ci.yml)
-[![Playground Demo Link](https://img.shields.io/badge/Playground_Demo-v1.0.5-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/Back-to-Top-Block/main/_playground/blueprint.json)
+[![Playground Demo Link](https://img.shields.io/badge/Playground_Demo-v1.0.6-blue?logo=wordpress&logoColor=%23fff&labelColor=%233858e9&color=%233858e9)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/philhoyt/Back-to-Top-Block/main/_playground/blueprint.json)
 ![WordPress Plugin: Required WP Version](https://img.shields.io/badge/WordPress-%3E%3D6.6-blue)
 ![License](https://img.shields.io/badge/license-GPL--2.0%2B-green)
 
@@ -76,7 +76,7 @@ CI runs the linters, Jest, the build and PHPUnit on every pull request.
 Tags are bare version numbers with no `v` prefix. Bump the version in `back-to-top-block.php`, `package.json`, `src/block.json` and `readme.txt`, add a changelog entry, commit, then push the tag:
 
 ```bash
-git tag 1.0.5 && git push origin 1.0.5
+git tag 1.0.6 && git push origin 1.0.6
 ```
 
 The release workflow builds the assets, deploys the plugin to WordPress.org SVN (using `.distignore` to exclude tooling), and creates a GitHub release with the matching changelog section as its body and `readme.txt` attached. The workflow does not attach a zip; the WordPress.org directory serves the installable package.

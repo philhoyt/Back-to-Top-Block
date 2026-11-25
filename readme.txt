@@ -2,8 +2,8 @@
 Contributors:      philhoyt
 Tags:              block, scroll, navigation, back-to-top, scroll-to-top
 Requires at least: 6.6
-Tested up to:      7.1
-Stable tag:        1.0.5
+Tested up to:      7.2
+Stable tag:        1.0.6
 Requires PHP:      7.4
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -52,6 +52,10 @@ Any theme that supports the block editor. Colors, spacing and typography come fr
 1. The block settings panel with the icon, text and custom icon controls.
 
 == Changelog ==
+
+= 1.0.6 =
+* Tested up to WordPress 7.2.
+* Rewrote the plugin description and FAQ in plain English.
 
 = 1.0.5 =
 * Tested up to WordPress 7.1.
